@@ -1,6 +1,8 @@
 [user]
     name = Firstname Lastname
     email = firstname.lastname@example.com
+[credential]
+	helper = manager
 [alias]
     br = "!git for-each-ref --format='%(committerdate:short),%(authorname),%(refname:short)' --sort=committerdate refs/heads/ | column -t -s ','"
     bra = branch -a
@@ -12,7 +14,7 @@
     dfs = diff --staged --ws-error-highlight=new,old
     i = update-index --assume-unchanged
     l = git log --oneline --graph --decorate
-    lg = log -p
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     ls = ls-files
     pom = push origin master
     # push current branch
@@ -20,6 +22,9 @@
     st = status
     unc = reset --soft HEAD^
     unstage = reset HEAD --
+	# Added
+	last = log -1
+	lp = log -p
 [color]
     ui = auto
 [core]
